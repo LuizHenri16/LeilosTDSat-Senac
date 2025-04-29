@@ -19,6 +19,8 @@ public class listagemVIEW extends javax.swing.JFrame {
     public listagemVIEW() {
         initComponents();
         listarProdutos();
+        
+        montarTabela();
     }
 
     /**
@@ -153,6 +155,27 @@ public class listagemVIEW extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
+    public void montarTabela() {
+        DefaultTableModel modeloTabela = (DefaultTableModel) listaProdutos.getModel();
+        modeloTabela.setRowCount(0);
+        
+        ProdutosDAO produtoDAO = new ProdutosDAO();
+        
+        ArrayList<ProdutosDTO> lista = produtoDAO.listarProdutos();
+        
+        for (ProdutosDTO produto : lista) {
+            String[] linha = {
+              String.valueOf(produto.getId()),
+              produto.getNome(),
+              String.valueOf(produto.getValor()),
+              produto.getStatus()
+            };
+            
+            modeloTabela.addRow(linha);
+        }
+        listaProdutos.setModel(modeloTabela);
+    }
+    
     /**
      * @param args the command line arguments
      */
