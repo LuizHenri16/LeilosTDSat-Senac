@@ -1,12 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author Adm
- */
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
@@ -91,7 +82,7 @@ public class ProdutosDAO {
             
             
         } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, "Erro ao listar os produtos do banco de dados" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao listar os produtos do banco de dados" + e.getMessage());
         }
 
         return listagem;
